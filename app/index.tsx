@@ -1,15 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, ScrollView } from 'react-native';
-import { Link } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CustomButton from '../components/CustomButton';
 import { images } from '../constants';
 
 export default function App() {
 	return (
-		<SafeAreaView className='bg-primary h-full'>
+		<SafeAreaView className='bg-primary'>
 			<ScrollView contentContainerStyle={{ height: '100%' }}>
-				<View className='w-full flex-col justify-start items-center h-full px-4'>
+				<View className='w-full flex-col justify-start items-center min-h-screen mt-10 px-4'>
 					<Image
 						source={images.logo}
 						className='w-[130px] h-[84px]'
@@ -36,7 +36,7 @@ export default function App() {
 					</Text>
 					<CustomButton
 						title='Continue with Email'
-						handlePress={() => {}}
+						handlePress={() => router.push('./sign-in')}
 						containerStyles='w-full mt-7'
 					/>
 				</View>
